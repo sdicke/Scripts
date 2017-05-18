@@ -15,4 +15,4 @@ if [ -z $user ]; then
 fi;
 
 #Use tmpfs und allow user to access the path fully
-su  -c "mount -t tmpfs none $path && chmod 755 $path && chown -R $user $path && chgrp -R $user $path";
+su  -c "mount -t tmpfs none $path && chown -R $user $path && chgrp -R $user $path";
