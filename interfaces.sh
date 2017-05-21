@@ -2,12 +2,9 @@
 
 #Lists all network interfaces available on the system
 
-excludelo=$1;
-list=`ip address show | awk 'index($1, ":") != 0 {print substr($2, 0, index($2, ":") -1)}'`;
-
-for current in $list;
+for current in `ip address show | awk 'index($1, ":") != 0 {print substr($2, 0, index($2, ":") -1)}'`;
 do
-	if [[ $current && !($excludelo && $current = "lo") ]]; then
+	if [[ $current && !($1 && $current = "lo") ]]; then
 		echo $current;
 	fi;
 done;
