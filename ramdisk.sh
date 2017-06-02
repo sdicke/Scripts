@@ -1,7 +1,7 @@
 #!/bin/sh
 
-path=$1;
-user=$2;
+path="$1";
+user="$2";
 
 #Asked user for path, when no was given
 if [ -z $path ]; then
