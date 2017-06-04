@@ -2,11 +2,11 @@
 
 #fetches and installs Debian's oxgencursors on non-debian system
 
-package=oxygencursors_0.0.2012-06-kde4.8-2.1_all.deb;
-dir=deb;
-data=data.tar;
+package="oxygencursors_0.0.2012-06-kde4.8-2.1_all.deb";
+dir="deb";
+data="data.tar";
 
-wget https://ftp.de.debian.org/debian/pool/main/o/oxygencursors/$package;
+wget "https://ftp.de.debian.org/debian/pool/main/o/oxygencursors/"$package;
 
 mkdir $dir;
 mv $package $dir;
