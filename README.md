@@ -16,3 +16,5 @@ getip.sh shows the ip address(es) for the given IP protocol version for the give
 volume.sh mutes or unmutes output channel 0 (normally the standard output) with PulseAudio
 
 keyorg.sh organise your SSH keys and ask for the password if need
+
+contentsearch searches a pattern recursively in all files in a directory tree and list all files which contains the phrase with count

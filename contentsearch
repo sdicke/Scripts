@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#Invoke with search pattern and path. Example: ./contentsearch "Test" /home/$(whoami)
+
+pattern="$1";
+path="$2";
+
+
+if [[ -z "$path" ]]; then
+	path=".";
+fi;
+
+grep -rc -e "$pattern" "$path" 2> /dev/null | awk -F ":" '$2 != 0 {print $2" "$1}' | sort -n | awk '{print $2" "$1}';
