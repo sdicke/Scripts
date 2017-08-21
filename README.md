@@ -13,3 +13,4 @@ ramdisc.sh Creates a ramdisc, mount it in the given directory and allow the give
 
 getip.sh shows the ip address(es) for the given IP protocol version for the given interface.
 
+volume.sh mutes or unmutes output channel 0 (normally the standard output) with PulseAudio
