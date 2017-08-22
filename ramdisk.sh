@@ -4,14 +4,14 @@ path="$1";
 user="$2";
 
 #Asked user for path, when no was given
-if [ -z $path ]; then
+if [ -z "$path" ]; then
 	echo "Path:";
-	read path;
+	read -r path;
 fi;
 
 #Selected executing user as path owner, when no was given
-if [ -z $user ]; then
-	user=`whoami`;
+if [ -z "$user" ]; then
+	user=$(whoami);
 fi;
 
 #Use tmpfs und allow user to access the path fully

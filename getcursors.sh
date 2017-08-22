@@ -10,10 +10,9 @@ wget "https://ftp.de.debian.org/debian/pool/main/o/oxygencursors/"$package;
 
 mkdir $dir;
 mv $package $dir;
-cd $dir;
+cd $dir || exit 1;
 ar -x $package;
 unxz $data.xz;
 tar -xf $data;
 su -c "cp -R etc usr /";
-cd ..;
-rm -r $dir;
+cd .. && rm -r $dir;

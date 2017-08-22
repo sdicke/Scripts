@@ -23,8 +23,8 @@ do
 		continue;
 	fi;
 	if [  $vmode ]; then
-		echo $interface $(getip.sh $version $current);
+		echo "$interface" "$(getip.sh "$version" "$current")";
 	else
-		echo $interface $(getip.sh 4 $current) $(getip.sh 6 $current);
+		echo "$interface" "$(getip.sh 4 "$current") $(getip.sh 6 "$current")";
 	fi;
 done;

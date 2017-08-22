@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 
 #Mutes or unmutes output channel 0 (normally the standard output) with PulseAudio
 
-if [ -z "$1" -o  "$1" = "mute" ]; then
+if [[ -z "$1" || "$1" = "mute" ]]; then
 	mode=1;
-elif [ "$1" = "unmute" ]; then
+elif [[ "$1" = "unmute" ]]; then
 	mode=0;
 fi;
 
