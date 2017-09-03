@@ -11,7 +11,7 @@ fi;
 
 #Selected executing user as path owner, when no was given
 if [ -z "$user" ]; then
-	user=$LOGNAME;
+	user="$LOGNAME";
 fi;
 
 #Use tmpfs und allow user to access the path fully
