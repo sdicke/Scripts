@@ -18,3 +18,7 @@ volume.sh mutes or unmutes output channel 0 (normally the standard output) with 
 keyorg.sh organise your SSH keys and ask for the password if need
 
 contentsearch searches a pattern recursively in all files in a directory tree and list all files which contains the phrase with count
+
+ttyspeed prints the speed of the current TTY
+
+ttysize prints the dimensions of the current TTysize prints the dimensions of the current TTY
