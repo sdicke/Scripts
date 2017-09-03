@@ -1,0 +1,2 @@
+#!/bin/bash
+stty -a | awk '$1 == "speed" {print $2}';
