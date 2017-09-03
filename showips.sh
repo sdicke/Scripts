@@ -4,22 +4,24 @@ for current in  $(interfaces.sh);
 do
 	interface=$current;
 	if [[ "$1" = "--help" ]]; then
-        echo "showips shows available interfaces and their attached IP addresses:";
-        echo "Usage: showips [nonames] [IP version] [lo]";
-        echo "nomames: do not show interfaces names";
-        echo "without version: both IPv4 and IPv6 addresses";
-        echo "lo: do not show loop device's address";
+        	echo "showips shows available interfaces and their attached IP addresses:";
+        	echo "Usage: showips [nonames] [IP version] [lo]";
+        	echo "nomames: do not show interfaces names";
+        	echo "without version: both IPv4 and IPv6 addresses";
+        	echo "lo: do not show loop device's address";
+		exit 0;
 	fi;
 	if [[ "$1" = "nonames" ]]; then
 		interface="";
-		version="$2";
-	else
-		version="$1";
+		shift;
 	fi;
-	if [[ $version && ($version = "4" || $version = "6") ]]; then
+	version="$1";
+	if [[ "$version" = "4" || $version = "6" ]]; then
 		vmode="true";
+		shift;
+		next="$1";
 	fi;
-	if [[ $current = "lo" && ("$1" = "lo" || "$2" = "lo" || "$3" = "lo") ]]; then
+	if [[ $current = "lo" && "$next" = "lo" ]]; then
 		continue;
 	fi;
 	if [[ $vmode ]]; then
