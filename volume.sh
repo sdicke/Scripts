@@ -8,4 +8,4 @@ elif [[ "$1" = "unmute" ]]; then
 	mode=0;
 fi;
 
-pacmd set-sink-mute 0 $mode > /dev/null 2> /dev/null;
+pacmd set-sink-mute 0 $mode >&2 2> /dev/null;
