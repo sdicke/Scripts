@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Invoke with search pattern and path. Example: ./contentsearch "Test" /home/$(whoami)
 # The path is optional. If no path is given . is used as path.
@@ -6,7 +6,7 @@
 pattern="$1";
 path="$2";
 
-if [[ -z "$path" ]]; then
+if [ -z "$path" ]; then
 	path=".";
 fi;
 
