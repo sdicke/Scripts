@@ -3,6 +3,8 @@
 # Invoke with search pattern and path. Example: ./contentsearch "Test" /home/$(whoami)
 # The path is optional. If no path is given . is used as path.
 
+# TODO Make it possible to find pattern in files with whitespaces within their names.
+
 pattern="$1";
 path="$2";
 
