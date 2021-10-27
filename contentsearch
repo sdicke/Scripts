@@ -5,11 +5,7 @@
 
 # TODO Make it possible to find pattern in files with whitespaces within their names.
 
-pattern="$1";
+pattern=${1:-.}
 path="$2";
-
-if [ -z "$path" ]; then
-	path=".";
-fi;
 
 grep -rc -e "$pattern" "$path" 2> /dev/null | awk -F ":" '$2 != 0 {print $2" "$1}' | sort -n | awk '{print $2" "$1}';
