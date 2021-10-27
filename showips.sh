@@ -1,9 +1,25 @@
 #!/bin/bash
 
-for current in  $(interfaces.sh); 
+interfaces(){
+	#Lists all network interfaces available on the system
+	for current in $(ip address show | awk 'index($1, ":") != 0 {print substr($2, 0, index($2, ":") - 1)}');
+	do
+		if [[ "$current" && ! ($1 && "$current" = "lo") ]]; then
+			echo "$current";
+		fi;
+	done;
+}
+
+getip(){
+	#$1 = IP protocoll version, $2 = interface name
+	ip "-${1}" address show dev "$2" | awk '$1~/inet/ {print substr($2, 0, index($2, "/") -1 )}';
+}
+
+for current in  $(interfaces);
 do
 	interface="$current";
-	if [[ "$1" = "--help" ]]; then
+	if [[ "$1" = "--help" ]];
+	then
         	echo "showips shows available interfaces and their attached IP addresses:";
         	echo "Usage: showips [nonames] [IP version] [lo]";
         	echo "nomames: do not show interfaces names";
@@ -11,22 +27,11 @@ do
         	echo "lo: do not show loop device's address";
 		exit 0;
 	fi;
-	if [[ "$1" = "nonames" ]]; then
-		interface="";
-		shift;
-	fi;
-	version="$1";
-	if [[ "$version" = "4" || "$version" = "6" ]]; then
-		vmode="true";
-		shift;
-		next="$1";
-	fi;
-	if [[ "$current" = "lo" && "$next" = "lo" ]]; then
+	v4="$(getip 4 "$current")"
+	v6="$(getip 6 "$current")"
+	if [[ -z "$v4" && -z $v6 ]];
+	then
 		continue;
-	fi;
-	if [[ "$vmode" ]]; then
-		echo "$interface" "$(getip.sh "$version" "$current")";
-	else
-		echo "$interface" "$(getip.sh 4 "$current") $(getip.sh 6 "$current")";
-	fi;
+	fi
+	echo $interface: $v4 $v6
 done;
