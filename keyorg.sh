@@ -8,7 +8,7 @@ list=$(ssh-add -l | awk '{print $3}');
 file="$folder$key";
 for current in $list; do
 	if [[ $(basename "$current") = "$key" ]]; then
-		success=true;
+		success="true";
 		break;
 	fi;
 done;
