@@ -12,5 +12,7 @@ fi;
 user=${2:-"$LOGNAME"}
 
 #Use tmpfs und allow user to access the path fully
-echo "Insert the root password";
+if [ $UID -ne 0 ]; then
+	echo "Insert the root password";
+fi
 su  -c "mount -t tmpfs none $path && chown -R $user $path && chgrp -R $user $path";
