@@ -12,7 +12,7 @@ interfaces(){
 
 getip(){
 	#$1 = IP protocoll version, $2 = interface name
-	echo ip "-${1}" address show dev "$2" | awk '$1~/inet/ {print substr($2, 0, index($2, "/") -1 )}';
+	ip "-${1}" address show dev "$2" | awk '$1~/inet/ {print substr($2, 0, index($2, "/") -1 )}'
 }
 
 showips(){
