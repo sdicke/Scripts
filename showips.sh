@@ -37,4 +37,6 @@ showips(){
 		echo $interface: $v4 $v6
 	done;
 }
-showips
+if [[ -z $0 ]]; then
+	showips
+fi
