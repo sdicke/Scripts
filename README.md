@@ -1,7 +1,7 @@
 # Scripts
 Miscellaneous shell scripts
 
-`calculate_date` calculates the difference in days between to dates expressed either in the format yyyy-mm-dd or in the format dd-mm-YYY and in other formats supported by the date command implementation. 
+`calculate_date` calculates the difference in days between to dates expressed either in the format yyyy-mm-dd or in the format dd-mm-yyyy and in other formats supported by the date command implementation.
 
 `update.sh` proceeds a system upgrade on apt based systems.
 
