@@ -1,2 +1,2 @@
-#!/bin/bash
+#!/bin/sh
 stty -a | awk '$4 == "rows" && $6 == "columns" {print substr($5, 0, length($5)-1)" * "substr($7, 0, length($7)-1)}'
