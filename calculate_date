@@ -1,0 +1,20 @@
+#!/bin/sh
+
+a="$1"
+b="$2"
+
+reposition(){
+	if [[ $1 == *.* ]]; then
+		echo $(echo $1 | awk -F '.' '{print $3"-"$2"-"$1}')
+	fi
+}
+
+a=$(reposition $a)
+b=$(reposition $b)
+
+a_date=$(date --date="$a" +%s)
+b_date=$(date --date="$b" +%s)
+seconds=$(($a_date - $b_date))
+day=$((60*60*24))
+
+echo $(( $seconds/ $day ))
